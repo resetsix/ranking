@@ -22,7 +22,10 @@
         "start": "craco start",
         "build": "craco build",
         "test": "craco test",
-        "eject": "react-scripts eject"
+        "posttest": "npm run format",
+        "eject": "react-scripts eject",
+        "format": "prettier --loglevel warn --write \"**/*.{ts,tsx}\"",
+        "prepare": "husky install"
     },
     "eslintConfig": {
         "extends": [
@@ -41,5 +44,13 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "devDependencies": {
+        "husky": ">=6",
+        "lint-staged": ">=10",
+        "prettier": ">=2"
+    },
+    "lint-staged": {
+        "*.{ts,tsx}": "prettier --write"
     }
 }
