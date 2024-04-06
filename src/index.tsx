@@ -1,15 +1,19 @@
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import App from "./App";
+import Context from "./App";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
+import { worker } from "./server";
 
-const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
-root.render(
-	<BrowserRouter>
-		<App />
-	</BrowserRouter>,
-);
+// Conditionally enable mocking
+async function enableMocking() {
+	if (process.env.NODE_ENV !== "development") return;
+	return worker.start();
+}
+
+enableMocking().then(() => {
+	const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
+	root.render(<Context />);
+});
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

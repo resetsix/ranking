@@ -1,56 +1,56 @@
 import qs from "qs";
-import { Http } from "utils/http";
+import { http } from "utils/http";
 
 export const useHttp = () => {
-	const GET = (...[url, req]: Parameters<typeof Http>) => {
+	const GET = (...[url, req]: Parameters<typeof http>) => {
 		const cfg = {
 			...req,
-			headers: { method: "GET" },
+			method: "GET",
 		};
 		if (req) {
-			url += `${qs.stringify(req.data, {
+			url += `?${qs.stringify(req.data, {
 				filter(prefix, value) {
 					return value === "" ? undefined : value;
 				},
 			})}`;
 		}
-		return Http(url, cfg);
+		return http(url, cfg);
 	};
 
-	const POST = (...[url, req]: Parameters<typeof Http>) => {
+	const POST = (...[url, req]: Parameters<typeof http>) => {
 		const cfg = {
 			...req,
-			body: req ? qs.stringify(req.data) : null,
-			headers: { method: "POST" },
+			method: "POST",
+			body: req ? JSON.stringify(req.data) : null,
 		};
 
-		return Http(url, cfg);
+		return http(url, cfg);
 	};
 
-	const PATCH = (...[url, req]: Parameters<typeof Http>) => {
+	const PATCH = (...[url, req]: Parameters<typeof http>) => {
 		const cfg = {
 			...req,
-			body: req ? qs.stringify(req.data) : null,
-			headers: { method: "PATCh" },
+			method: "PATCH",
+			body: req ? JSON.stringify(req.data) : null,
 		};
 
-		return Http(url, cfg);
+		return http(url, cfg);
 	};
 
-	const DELETE = (...[url, req]: Parameters<typeof Http>) => {
+	const DELETE = (...[url, req]: Parameters<typeof http>) => {
 		const cfg = {
 			...req,
-			headers: { method: "DELETE" },
+			method: "DELETE",
 		};
 		if (req) {
-			url += `${qs.stringify(req.data, {
+			url += `?${qs.stringify(req.data, {
 				filter(prefix, value) {
 					return value === "" ? undefined : value;
 				},
 			})}`;
 		}
 
-		return Http(url, cfg);
+		return http(url, cfg);
 	};
 
 	return { GET, POST, PATCH, DELETE };

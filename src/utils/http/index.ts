@@ -1,17 +1,18 @@
+import { DEFAULT_API_URL } from "constant";
 import { errorHandler } from "utils/base/request";
 
 interface HttpProps extends RequestInit {
-	data?: Record<string, unknown>;
+	data?: any;
 }
 
-export const Http = async <T>(url: string, { ...rest }: HttpProps): Promise<T> => {
+export const http = async (url: string, { data, ...rest }: HttpProps = {}) => {
 	const config = {
 		...rest,
 		headers: {
 			...rest.headers,
-			"Content-Type": rest.data ? "application/json" : "",
+			"Content-Type": data ? "application/json" : "",
 		},
 	};
-	const response = errorHandler(await fetch(url, config));
-	return response.json();
+	const resp = errorHandler(await fetch(`${DEFAULT_API_URL}/${url}`, config));
+	return resp.ok ? resp.json() : resp;
 };
