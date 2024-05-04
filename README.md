@@ -1,24 +1,9 @@
-## Jira
+## Github User
 
-React 18.2 (FC组件) 与 TypeScript 构建的任务管理系统
+## Top 榜
 
-## installing
-```bash
-yarn
-```
+![排行榜](./README-01.png)
 
-## start
-```bash
-yarn start
-```
+## 搜索功能
 
-## feature
-
-- [] 登录注册
-- [] 项目管理
-  - 新增、修改、删除、查询
-- [] 看板管理
-  - 新增、修改、删除、查询、拖拽排序
-- [] 任务组管理
-
-后续补充...
+![用户列表](./README-02.png)
