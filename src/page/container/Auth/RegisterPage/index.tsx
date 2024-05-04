@@ -31,7 +31,8 @@ const RegisterPage: React.FC = () => {
 				<Input.Password placeholder="密码" />
 			</FormItem>
 			<FormItem name="cpassword" dependencies={["password"]} rules={rules}>
-				<Input.Password placeholder="密码" />
+				{/* {({ password }) => <Input.Password placeholder="确认密码" />} */}
+				<Input.Password placeholder="确认密码" />
 			</FormItem>
 			<FormItem>
 				<FullButton>注册</FullButton>
