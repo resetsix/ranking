@@ -13,7 +13,7 @@ export const useUserService = () => {
 	 */
 	const useGetUser = (name: string) => {
 		return useQuery<UserDetailResp>({
-			queryKey: ["useUserList", name],
+			queryKey: ["useGetUser", name],
 			queryFn: () => GET("users/" + name),
 			enabled: !!name,
 		});
@@ -23,7 +23,6 @@ export const useUserService = () => {
 	 * @description: 获取用户列表
 	 */
 	const useUserList = () => {
-		// const url = name ? `users/${name}` : "users";
 		return useQuery<UserListResp[]>({ queryKey: ["useUserList"], queryFn: () => GET("users") });
 	};
 

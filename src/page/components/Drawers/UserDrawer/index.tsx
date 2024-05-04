@@ -5,6 +5,7 @@ import LinkButton from "components/Buttons/LinkButton";
 import { useUserService } from "hooks/useUserService";
 import React from "react";
 import { UserData } from "types/userRank";
+import { conditional } from "utils/base/conditional";
 import { time } from "utils/base/time";
 
 interface UserDrawerProps {
@@ -29,7 +30,11 @@ export const UserDrawer = NiceModal.create<UserDrawerProps>(({ data }) => {
 					{userInfo?.company}
 				</ProDescriptions.Item>
 				<ProDescriptions.Item label="博客" valueType="text" contentStyle={contentStyle}>
-					<LinkButton label={userInfo?.blog ?? ""} href={userInfo?.blog} />
+					{conditional({
+						condition: !!userInfo?.blog,
+						whenTrue: <LinkButton label={userInfo?.blog} href={userInfo?.blog} />,
+						whenFalse: "-",
+					})}
 				</ProDescriptions.Item>
 				<ProDescriptions.Item label="地址" valueType="text" contentStyle={contentStyle}>
 					{userInfo?.location}
@@ -41,7 +46,16 @@ export const UserDrawer = NiceModal.create<UserDrawerProps>(({ data }) => {
 					{userInfo?.bio}
 				</ProDescriptions.Item>
 				<ProDescriptions.Item label="推特" valueType="text" contentStyle={contentStyle}>
-					{userInfo?.twitter_username}
+					{conditional({
+						condition: !!userInfo?.twitter_username,
+						whenTrue: (
+							<LinkButton
+								label={userInfo?.twitter_username}
+								href={"https://twitter.com/" + userInfo?.twitter_username}
+							/>
+						),
+						whenFalse: "-",
+					})}
 				</ProDescriptions.Item>
 				<ProDescriptions.Item label="公共仓库" valueType="text" contentStyle={contentStyle}>
 					{userInfo?.public_repos}

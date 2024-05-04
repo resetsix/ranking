@@ -3,7 +3,8 @@ export interface UserRankReq {
 	sort?: string;
 	order?: string;
 	per_page?: number;
-	page?: number;
+	page?: string;
+	type?: string;
 }
 
 export interface UserData {

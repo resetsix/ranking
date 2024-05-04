@@ -1,6 +1,6 @@
 import NiceModal from "@ebay/nice-modal-react";
 import { useMount, useTitle } from "ahooks";
-import { Avatar, Flex, Input, Select, Space, Table, TableProps } from "antd";
+import { Avatar, Flex, Input, Space, Table, TableProps } from "antd";
 import LinkButton from "components/Buttons/LinkButton";
 import { useUserService } from "hooks/useUserService";
 import { UserDrawer } from "page/components/Drawers/UserDrawer";
@@ -57,8 +57,8 @@ const UserList: React.FC = () => {
 	return (
 		<Flex vertical>
 			<Space>
-				<Select options={[]} placeholder="选择地区" />
-				<Input placeholder="输入登录名回车搜索" onPressEnter={(e: any) => setUserName(e.target.value)} />
+				登录名
+				<Input placeholder="回车搜索" onPressEnter={(e: any) => setUserName(e.target.value)} />
 			</Space>
 			<Table<any>
 				rowKey={(record) => record?.id}
