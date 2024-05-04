@@ -12,13 +12,18 @@ export const useUserService = () => {
 	 * @param {string} name 用户登录名
 	 */
 	const useGetUser = (name: string) => {
-		return useQuery<UserDetailResp>({ queryKey: ["useUserList", name], queryFn: () => GET("users/" + name) });
+		return useQuery<UserDetailResp>({
+			queryKey: ["useUserList", name],
+			queryFn: () => GET("users/" + name),
+			enabled: !!name,
+		});
 	};
 
 	/**
 	 * @description: 获取用户列表
 	 */
 	const useUserList = () => {
+		// const url = name ? `users/${name}` : "users";
 		return useQuery<UserListResp[]>({ queryKey: ["useUserList"], queryFn: () => GET("users") });
 	};
 

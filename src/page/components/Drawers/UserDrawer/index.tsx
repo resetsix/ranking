@@ -7,13 +7,13 @@ import React from "react";
 import { UserData } from "types/userRank";
 import { time } from "utils/base/time";
 
-interface UserModalProps {
+interface UserDrawerProps {
 	data: UserData;
 }
 
 const contentStyle: React.CSSProperties = { maxWidth: "80%" };
 
-export const UserModal = NiceModal.create<UserModalProps>(({ data }) => {
+export const UserDrawer = NiceModal.create<UserDrawerProps>(({ data }) => {
 	const modal = useModal();
 	const { login } = data;
 	const { useGetUser } = useUserService();

@@ -11,7 +11,7 @@ type MenuItem = Required<MenuProps>["items"][number];
 
 const items: MenuItem[] = [
 	{ title: "排行榜", label: "排行榜", icon: <DesktopOutlined />, key: "rank" },
-	{ title: "用户信息", label: "用户信息", icon: <PieChartOutlined />, key: "user" },
+	{ title: "用户列表", label: "用户列表", icon: <PieChartOutlined />, key: "user" },
 ];
 
 const UserLayout: React.FC = () => {

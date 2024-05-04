@@ -5,6 +5,7 @@ import React from "react";
 import { BrowserRouter, useRoutes } from "react-router-dom";
 import { AuthRouter } from "routes";
 import "./App.css";
+import { ErrorBoundary, ErrorBoundaryProps } from "react-error-boundary";
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -16,19 +17,31 @@ const queryClient = new QueryClient({
 	},
 });
 
+const Fallback: ErrorBoundaryProps["FallbackComponent"] = ({ error, resetErrorBoundary }) => {
+	return (
+		<div role="alert">
+			<p>Something went wrong:</p>
+			<pre style={{ color: "red" }}>{error.message}</pre>
+		</div>
+	);
+};
+
+// hook 不能放在 return 中
 const App = () => useRoutes(AuthRouter);
 
 const Context: React.FC = () => {
 	return (
-		<BrowserRouter>
-			<QueryClientProvider client={queryClient}>
-				<NiceModal.Provider>
-					<AntdApp>
-						<App />
-					</AntdApp>
-				</NiceModal.Provider>
-			</QueryClientProvider>
-		</BrowserRouter>
+		<ErrorBoundary FallbackComponent={Fallback}>
+			<BrowserRouter>
+				<QueryClientProvider client={queryClient}>
+					<NiceModal.Provider>
+						<AntdApp>
+							<App />
+						</AntdApp>
+					</NiceModal.Provider>
+				</QueryClientProvider>
+			</BrowserRouter>
+		</ErrorBoundary>
 	);
 };
 
