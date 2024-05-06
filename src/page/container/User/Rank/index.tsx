@@ -10,7 +10,7 @@ import { UserData } from "types/userRank";
 const { Text } = Typography;
 
 const COUNTRY_OPTIONS = [
-	{ label: "China（中国）", value: "China" },
+	{ label: "China（中国区）", value: "China" },
 	{ label: "Singapore（新加坡）", value: "Singapore" },
 	{ label: "Japan（日本）", value: "Japan" },
 	{ label: "India（印度）", value: "India" },

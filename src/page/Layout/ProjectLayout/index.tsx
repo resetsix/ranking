@@ -1,7 +1,8 @@
-import { DesktopOutlined, PieChartOutlined } from "@ant-design/icons";
+import { UserOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Card, Flex, Layout, Menu } from "antd";
 import LinkButton from "components/Buttons/LinkButton";
+import { PhRankingDuotone } from "components/Icons";
 import React, { useState } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
@@ -10,8 +11,8 @@ const { Content, Footer, Sider } = Layout;
 type MenuItem = Required<MenuProps>["items"][number];
 
 const items: MenuItem[] = [
-	{ title: "排行榜", label: "排行榜", icon: <DesktopOutlined />, key: "rank" },
-	{ title: "用户列表", label: "用户列表", icon: <PieChartOutlined />, key: "user" },
+	{ title: "排行榜", label: "排行榜", icon: <PhRankingDuotone />, key: "rank" },
+	{ title: "用户列表", label: "用户列表", icon: <UserOutlined style={{ fontSize: 20 }} />, key: "user" },
 ];
 
 const UserLayout: React.FC = () => {

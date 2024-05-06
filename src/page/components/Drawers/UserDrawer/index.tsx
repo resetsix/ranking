@@ -26,6 +26,12 @@ export const UserDrawer = NiceModal.create<UserDrawerProps>(({ data }) => {
 				<ProDescriptions.Item label="姓名" valueType="text" contentStyle={contentStyle}>
 					{userInfo?.name}
 				</ProDescriptions.Item>
+				<ProDescriptions.Item label="简介" valueType="text" contentStyle={contentStyle}>
+					{userInfo?.bio}
+				</ProDescriptions.Item>
+				<ProDescriptions.Item label="地址" valueType="text" contentStyle={contentStyle}>
+					{userInfo?.location}
+				</ProDescriptions.Item>
 				<ProDescriptions.Item label="公司" valueType="text" contentStyle={contentStyle}>
 					{userInfo?.company}
 				</ProDescriptions.Item>
@@ -35,15 +41,6 @@ export const UserDrawer = NiceModal.create<UserDrawerProps>(({ data }) => {
 						whenTrue: <LinkButton label={userInfo?.blog} href={userInfo?.blog} />,
 						whenFalse: "-",
 					})}
-				</ProDescriptions.Item>
-				<ProDescriptions.Item label="地址" valueType="text" contentStyle={contentStyle}>
-					{userInfo?.location}
-				</ProDescriptions.Item>
-				<ProDescriptions.Item label="邮箱" valueType="text" contentStyle={contentStyle}>
-					{userInfo?.email}
-				</ProDescriptions.Item>
-				<ProDescriptions.Item label="简介" valueType="text" contentStyle={contentStyle}>
-					{userInfo?.bio}
 				</ProDescriptions.Item>
 				<ProDescriptions.Item label="推特" valueType="text" contentStyle={contentStyle}>
 					{conditional({
@@ -63,11 +60,11 @@ export const UserDrawer = NiceModal.create<UserDrawerProps>(({ data }) => {
 				<ProDescriptions.Item label="公共代码片段" valueType="text" contentStyle={contentStyle}>
 					{userInfo?.public_gists}
 				</ProDescriptions.Item>
-				<ProDescriptions.Item label="粉丝" valueType="text" contentStyle={contentStyle}>
-					{userInfo?.followers}
-				</ProDescriptions.Item>
 				<ProDescriptions.Item label="关注" valueType="text" contentStyle={contentStyle}>
 					{userInfo?.following}
+				</ProDescriptions.Item>
+				<ProDescriptions.Item label="粉丝" valueType="text" contentStyle={contentStyle}>
+					{userInfo?.followers}
 				</ProDescriptions.Item>
 				<ProDescriptions.Item label="创建时间" valueType="text" contentStyle={contentStyle}>
 					{time(userInfo?.created_at ?? "")}
