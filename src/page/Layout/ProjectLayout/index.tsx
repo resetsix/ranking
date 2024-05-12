@@ -44,7 +44,7 @@ const UserLayout: React.FC = () => {
 					</Flex>
 				</Content>
 				<Footer style={{ textAlign: "center" }}>
-					@{new Date().getFullYear()} Created by{" "}
+					Copyright © {new Date().getFullYear()} Powered by{" "}
 					<LinkButton label="「一闪一闪亮晶晶」" href="https://github.com/resetsix" />
 				</Footer>
 			</Layout>
