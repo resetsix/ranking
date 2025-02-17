@@ -3,7 +3,7 @@ export interface UserRankReq {
 	sort?: string;
 	order?: string;
 	per_page?: number;
-	page?: string;
+	page?: number;
 	type?: string;
 }
 
@@ -27,6 +27,9 @@ export interface UserData {
 	type: string;
 	site_admin: boolean;
 	score: number;
+	followers?: number;
+	public_repos?: number;
+	location?: string;
 }
 
 export interface UserRankResp {

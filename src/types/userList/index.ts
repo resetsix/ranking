@@ -20,4 +20,7 @@ export interface UserListResp {
 	received_events_url: string;
 	type: string;
 	site_admin: boolean;
+	followers?: number;
+	public_repos?: number;
+	location?: string;
 }

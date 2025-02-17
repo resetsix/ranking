@@ -1,7 +1,6 @@
 import { ProDescriptions } from "@ant-design/pro-components";
 import NiceModal, { useModal } from "@ebay/nice-modal-react";
-import { Drawer } from "antd";
-import LinkButton from "components/Buttons/LinkButton";
+import { Drawer, Typography } from "antd";
 import { useUserService } from "hooks/useUserService";
 import React from "react";
 import { UserData } from "types/userRank";
@@ -12,6 +11,7 @@ interface UserDrawerProps {
 	data: UserData;
 }
 
+const { Link } = Typography;
 const contentStyle: React.CSSProperties = { maxWidth: "80%" };
 
 export const UserDrawer = NiceModal.create<UserDrawerProps>(({ data }) => {
@@ -38,7 +38,7 @@ export const UserDrawer = NiceModal.create<UserDrawerProps>(({ data }) => {
 				<ProDescriptions.Item label="博客" valueType="text" contentStyle={contentStyle}>
 					{conditional({
 						condition: !!userInfo?.blog,
-						whenTrue: <LinkButton label={userInfo?.blog} href={userInfo?.blog} />,
+						whenTrue: <Link href={userInfo?.blog}>{userInfo?.blog}</Link>,
 						whenFalse: "-",
 					})}
 				</ProDescriptions.Item>
@@ -46,10 +46,9 @@ export const UserDrawer = NiceModal.create<UserDrawerProps>(({ data }) => {
 					{conditional({
 						condition: !!userInfo?.twitter_username,
 						whenTrue: (
-							<LinkButton
-								label={userInfo?.twitter_username}
-								href={"https://twitter.com/" + userInfo?.twitter_username}
-							/>
+							<Link href={"https://twitter.com/" + userInfo?.twitter_username}>
+								{userInfo?.twitter_username}
+							</Link>
 						),
 						whenFalse: "-",
 					})}
