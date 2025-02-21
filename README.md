@@ -1,13 +1,13 @@
-![alt text](image.png)## Github User
+## Most Popular GitHub Developers
 
-## Top 榜
+## Top
 
 ![排行榜](./README-04.png)
 
-## 用户搜索
+## User Search
 
 ![用户列表](./README-05.png)
 
-## 用户信息
+## User Info
 
 ![用户列表](./README-03.png)
