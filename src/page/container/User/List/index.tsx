@@ -5,6 +5,7 @@ import { useUserService } from "hooks/useUserService";
 import { UserDrawer } from "page/components/Drawers/UserDrawer";
 import { useState } from "react";
 import { UserListResp } from "types/userList";
+import "./index.css";
 
 const { Link } = Typography;
 
@@ -67,7 +68,7 @@ const UserList: React.FC = () => {
 	useTitle("用户列表");
 	const [userName, setUserName] = useState<string>("");
 	const { useUserList } = useUserService();
-	const [pagination, setPagination] = useState({ current: 1, pageSize: 30 });
+	const [pagination, setPagination] = useState({ current: 1, pageSize: 10 });
 
 	const { data, isFetching } = useUserList({
 		q: userName ? `${userName} in:login` : "",
@@ -85,12 +86,32 @@ const UserList: React.FC = () => {
 	};
 
 	return (
-		<Flex vertical style={{ padding: 16 }}>
-			<Flex justify="space-between" style={{ marginBottom: 16 }}>
+		<Flex
+			vertical
+			style={{
+				padding: 24,
+				maxWidth: 1400,
+				margin: "0 auto",
+				width: "100%",
+			}}
+		>
+			<Flex
+				justify="space-between"
+				className="filter-container"
+				style={{
+					padding: 16,
+					backgroundColor: "#fff",
+					borderRadius: 8,
+					boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+					gap: 16,
+				}}
+			>
 				<Input
-					style={{ width: 200 }}
+					style={{ width: 280 }}
+					size="large"
 					placeholder="登录名 回车搜索"
 					onPressEnter={(e: any) => handleSearch(e.target.value)}
+					allowClear
 				/>
 			</Flex>
 			<Table<UserListResp>
@@ -99,6 +120,12 @@ const UserList: React.FC = () => {
 				dataSource={Array.isArray(data?.data) ? data?.data : []}
 				columns={columns}
 				pagination={false}
+				style={{
+					borderRadius: 8,
+					overflow: "hidden",
+					boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+				}}
+				rowClassName={(record, index) => (index % 2 === 0 ? "even-row" : "odd-row")}
 			/>
 		</Flex>
 	);

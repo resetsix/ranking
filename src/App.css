@@ -1,38 +1,37 @@
-.App {
-  text-align: center;
+/* 全局容器样式 */
+.app-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+  width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* 全局卡片样式 */
+.ant-card {
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* 全局表格样式 */
+.ant-table {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* 全局按钮样式 */
+.ant-btn {
+  border-radius: 6px !important;
 }
 
-.App-link {
-  color: #61dafb;
+/* 全局输入组件样式 */
+.ant-input, 
+.ant-select-selector,
+.ant-picker {
+  border-radius: 6px !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* 全局分页器间距 */
+.ant-pagination {
+  margin: 24px 0 !important;
 }

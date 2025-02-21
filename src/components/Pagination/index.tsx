@@ -7,7 +7,7 @@ const TablePagination = ({ ...props }: PaginationProps) => {
 			showSizeChanger
 			defaultPageSize={20}
 			showTotal={(total) => `共计：${total ?? 0}`}
-			pageSizeOptions={["30", "50", "100", "300", "500", "1000"]}
+			pageSizeOptions={["10", "20", "30", "50", "100"]}
 			{...props}
 		/>
 	);

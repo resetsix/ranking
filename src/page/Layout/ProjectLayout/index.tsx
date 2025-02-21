@@ -30,7 +30,7 @@ const StatCard = ({ icon: Icon, value, label, subLabel, style }: any) => (
 	<Card
 		size="small"
 		style={{
-			width: 280,
+			width: "100%",
 			border: "none",
 			borderRadius: 12,
 			overflow: "hidden",

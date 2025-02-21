@@ -94,7 +94,7 @@ const UserRank: React.FC = () => {
 	useTitle("排行榜");
 	const [searchParams, setSearchParams] = useSearchParams();
 	const city = searchParams.get("city") || "China";
-	const [pagination, setPagination] = useState({ current: 1, pageSize: 30 });
+	const [pagination, setPagination] = useState({ current: 1, pageSize: 10 });
 	const { useUserRank } = useUserService();
 	const { data, isFetching } = useUserRank({
 		q: `location:${city}`,
@@ -123,7 +123,6 @@ const UserRank: React.FC = () => {
 		},
 		{
 			title: "用户",
-			width: 200,
 			render(value, record) {
 				return (
 					<Space>
@@ -136,31 +135,26 @@ const UserRank: React.FC = () => {
 		{
 			title: "粉丝数",
 			dataIndex: "followers",
-			width: 100,
 			render: (value) => value ?? "-",
 			sorter: (a, b) => (a.followers ?? 0) - (b.followers ?? 0),
 		},
 		{
 			title: "仓库数",
 			dataIndex: "public_repos",
-			width: 100,
 			render: (value) => value ?? "-",
 		},
 		{
 			title: "地址",
 			dataIndex: "location",
-			width: 150,
 			ellipsis: true,
 			render: (value) => value || "-",
 		},
 		{
 			title: "类型",
 			dataIndex: "type",
-			width: 100,
 		},
 		{
 			title: "操作",
-			width: 120,
 			fixed: "right",
 			render(value, record) {
 				return (
@@ -176,17 +170,40 @@ const UserRank: React.FC = () => {
 	];
 
 	return (
-		<Flex vertical style={{ padding: 16 }}>
-			<Flex justify="space-between" style={{ marginBottom: 16 }}>
-				<Space>
-					开发者城市
+		<Flex
+			vertical
+			style={{
+				padding: 24,
+				maxWidth: 1400,
+				margin: "0 auto",
+				width: "100%",
+				gap: 24, // 增加容器间距
+			}}
+		>
+			<Flex
+				justify="space-between"
+				align="center"
+				className="filter-container"
+				style={{
+					padding: 16,
+					backgroundColor: "#fff",
+					borderRadius: 8,
+					boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+					gap: 16,
+				}}
+			>
+				<Space align="center">
+					<span style={{ fontWeight: 500, color: "#1f1f1f" }}>开发者城市</span>
 					<Select
 						options={COUNTRY_OPTIONS}
-						style={{ minWidth: 200 }}
+						style={{ width: 280 }}
+						size="large"
 						value={city}
 						onChange={handleCityChange}
 						placeholder="选择地区"
 						optionFilterProp="label"
+						showSearch
+						allowClear
 					/>
 				</Space>
 				<TablePagination
@@ -198,12 +215,18 @@ const UserRank: React.FC = () => {
 				/>
 			</Flex>
 			<Table
-				size="small"
+				size="middle"
 				rowKey={(record) => record.id}
 				loading={isFetching}
 				dataSource={data?.items}
 				columns={columns}
 				pagination={false}
+				style={{
+					borderRadius: 8,
+					overflow: "hidden",
+					boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+				}}
+				rowClassName={(record, index) => (index % 2 === 0 ? "even-row" : "odd-row")}
 			/>
 		</Flex>
 	);

@@ -1,0 +1,47 @@
+/* 表格基本样式 */
+.ant-table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* 斑马纹行样式 */
+.ant-table-tbody > tr.even-row {
+  background-color: #fafafa;
+}
+
+.ant-table-tbody > tr.odd-row {
+  background-color: #fff;
+}
+
+/* 悬停效果 */
+.ant-table-tbody > tr:hover > td {
+  background-color: #f5f5f5 !important;
+  cursor: pointer;
+}
+
+/* 操作链接样式 */
+.ant-link {
+  transition: color 0.3s;
+  color: #1677ff;
+}
+
+.ant-link:hover {
+  color: #69b1ff;
+}
+
+/* 搜索栏样式 */
+.search-container {
+  background: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 24px;
+}
+
+/* 头像样式 */
+.ant-avatar {
+  width: 36px;
+  height: 36px;
+  margin-right: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}

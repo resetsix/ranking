@@ -1,0 +1,110 @@
+/* 全局统一样式 */
+.filter-container {
+  margin-bottom: 24px;
+  background: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.ant-table {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.ant-table-thead > tr > th {
+  background: #fafafa !important;
+  font-weight: 500;
+}
+
+.ant-table-tbody > tr.even-row {
+  background-color: #fafafa;
+}
+
+.ant-table-tbody > tr.odd-row {
+  background-color: #fff;
+}
+
+.ant-input-lg,
+.ant-select-selector {
+  border-radius: 6px !important;
+}
+
+.ant-pagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.ant-link {
+  transition: color 0.3s;
+  color: #1677ff;
+}
+
+.ant-link:hover {
+  color: #69b1ff;
+}
+
+.ant-avatar {
+  width: 36px;
+  height: 36px;
+  margin-right: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+/* 表格样式 */
+.ant-table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* 斑马纹行样式 */
+.ant-table-tbody > tr.even-row {
+  background-color: #fafafa;
+}
+
+.ant-table-tbody > tr.odd-row {
+  background-color: #fff;
+}
+
+/* 悬停效果 */
+.ant-table-tbody > tr:hover > td {
+  background-color: #f5f5f5 !important;
+  cursor: pointer;
+}
+
+/* 操作链接样式 */
+.ant-link {
+  transition: color 0.3s;
+  color: #1677ff;
+}
+
+.ant-link:hover {
+  color: #69b1ff;
+}
+
+/* 头像样式 */
+.ant-avatar {
+  width: 36px;
+  height: 36px;
+  margin-right: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 筛选栏样式 */
+.filter-bar {
+  background: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+/* 分页器容器 */
+.pagination-container {
+  margin-top: 24px;
+  padding: 16px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
